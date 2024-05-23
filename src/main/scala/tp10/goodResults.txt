@@ -1,0 +1,119 @@
+x = mem[0] : Ref Nat
+
+y = 0 : Nat
+
+unit : Unit
+
+unit : Unit
+
+0 : Nat
+
+f = λy : Ref Nat.
+    mem[0] : (Ref Nat -> Ref Nat)
+
+g = mem[1] : Ref (Ref Nat -> Ref Nat)
+
+λy : Ref Nat.
+  mem[0] : (Ref Nat -> Ref Nat)
+
+λy : Ref Nat.
+  (
+    λ_x5 : Unit.
+      0
+  ) (
+    unit
+  )  : (Ref Nat -> Nat)
+
+equal = λm : Nat.
+    λn : Nat.
+      if iszero m then
+        if iszero n then
+          true
+        else
+          false
+      else
+        if iszero n then
+          false
+        else
+          fix (
+            λ_f6 : (Nat -> (Nat -> Bool)).
+              λm : Nat.
+                λn : Nat.
+                  if iszero m then
+                    if iszero n then
+                      true
+                    else
+                      false
+                  else
+                    if iszero n then
+                      false
+                    else
+                      _f6 (
+                        pred m
+                      ) (
+                        pred n
+                      )
+          ) (
+            pred m
+          ) (
+            pred n
+          ) : (Nat -> (Nat -> Bool))
+
+newArray = λx : Unit.
+    ref λn : Nat.
+        0 : (Unit -> Ref (Nat -> Nat))
+
+lookup = λt : Ref (Nat -> Nat).
+    λn : Nat.
+      !t n : (Ref (Nat -> Nat) -> (Nat -> Nat))
+
+update = λt : Ref (Nat -> Nat).
+    λm : Nat.
+      λv : Nat.
+        let oldt = !t
+        in
+          t := λn : Nat.
+              if (
+                  λm : Nat.
+                    λn : Nat.
+                      if iszero m then
+                        if iszero n then
+                          true
+                        else
+                          false
+                      else
+                        if iszero n then
+                          false
+                        else
+                          fix (
+                            λ_f6 : (Nat -> (Nat -> Bool)).
+                              λm : Nat.
+                                λn : Nat.
+                                  if iszero m then
+                                    if iszero n then
+                                      true
+                                    else
+                                      false
+                                  else
+                                    if iszero n then
+                                      false
+                                    else
+                                      _f6 (
+                                        pred m
+                                      ) (
+                                        pred n
+                                      )
+                          ) (
+                            pred m
+                          ) (
+                            pred n
+                          )
+                ) m n then
+                v
+              else
+                oldt n : (Ref (Nat -> Nat) -> (Nat -> (Nat -> Unit)))
+
+t = mem[2] : Ref (Nat -> Nat)
+
+succ succ 0 : Nat
+
