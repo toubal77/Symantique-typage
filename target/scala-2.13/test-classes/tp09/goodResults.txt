@@ -1,0 +1,21 @@
+{} : {}
+
+enreg = {champ1 = 0, champ2 = succ 0} : {champ1: Nat, champ2: Nat}
+
+succ 0 : Nat
+
+enr1 = {value = 0, flag = false} : {value: Nat, flag: Bool}
+
+enr2 = {value = succ 0, flag = true} : {value: Nat, flag: Bool}
+
+combine = λv1 : {value: Nat, flag: Bool}.
+    λv2 : {value: Nat, flag: Bool}.
+      {flag = v2.flag, value = v1.value} : ({value: Nat, flag: Bool} -> ({value: Nat, flag: Bool} -> {flag: Bool, value: Nat}))
+
+{flag = true, value = 0} : {flag: Bool, value: Nat}
+
+{ch1 = true, ch2 = succ succ 0} : {ch1: Bool, ch2: Nat}
+
+λenreg : {}.
+  unit : ({} -> Unit)
+

@@ -1,0 +1,23 @@
+#### enregistrements ({} et projection)
+
+{} ;;
+
+val enreg = {champ1 = 0, champ2 = succ 0} ;;
+
+enreg.champ2 ;;
+
+val enr1 = {value = 0, flag = false} ;;
+
+val enr2 = {value = succ 0, flag = true} ;;
+
+val combine = lambda v1 : {value : Nat, flag : Bool}.
+  lambda v2 : {value : Nat, flag : Bool}.
+    {flag = v2.flag, value = v1.value}
+;; 
+  
+combine enr1 enr2 ;;
+
+{ch1 = true, ch2 = (lambda x: Nat. succ x) succ 0} ;;
+
+lambda enreg : {}. unit ;;
+
